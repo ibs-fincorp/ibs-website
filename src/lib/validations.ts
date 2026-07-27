@@ -16,3 +16,8 @@ export const formSchema = z.object({
 });
 
 export type FormValues = z.infer<typeof formSchema>;
+
+export const submitFieldsSchema = formSchema.omit({
+  privacyConsent: true,
+  termsConsent: true,
+});

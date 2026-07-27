@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { formSchema } from '@/lib/validations';
+import { submitFieldsSchema } from '@/lib/validations';
 import { checkRateLimit } from '@/lib/rate-limit';
 
 function getClientIp(request: Request): string {
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
 
   const { fields } = body;
 
-  const parsed = formSchema.safeParse(fields);
+  const parsed = submitFieldsSchema.safeParse(fields);
   if (!parsed.success) {
     return NextResponse.json(
       { error: 'Validation failed' },
@@ -49,10 +49,22 @@ export async function POST(request: Request) {
     );
   }
 
-  const enrichedFields = {
-    ...fields,
+  const teleCrmFields: Record<string, string> = {
+    name: parsed.data.name,
     phone: `91${parsed.data.phone}`,
+    email: parsed.data.email,
+    cf_location: parsed.data.location,
+    cf_loan_or_referral: parsed.data.loanOrReferral,
+    cf_loan_requirement: parsed.data.loanRequirements,
+    cf_loan_type: parsed.data.loanType,
+    cf_cibil_score: parsed.data.cibilScore,
+    landing_page: fields.landing_page,
+    referrer: fields.referrer ?? '',
   };
+
+  if (fields.utm_source) teleCrmFields['utm_source'] = fields.utm_source;
+  if (fields.utm_medium) teleCrmFields['utm_medium'] = fields.utm_medium;
+  if (fields.utm_campaign) teleCrmFields['utm_campaign'] = fields.utm_campaign;
 
   const response = await fetch(
     `https://next-api.telecrm.in/enterprise/${enterpriseId}/autoupdatelead`,
@@ -62,7 +74,7 @@ export async function POST(request: Request) {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ fields: enrichedFields }),
+      body: JSON.stringify({ fields: teleCrmFields }),
     }
   );
 
