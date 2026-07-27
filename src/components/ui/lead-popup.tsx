@@ -35,12 +35,10 @@ export function LeadPopup() {
     updateTranslateX();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
     window.addEventListener("resize", updateTranslateX, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
       window.removeEventListener("resize", updateTranslateX);
     };
   }, []);

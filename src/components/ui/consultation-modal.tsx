@@ -15,53 +15,65 @@ export const openConsultationModal = () => {
 
 export function ConsultationModal() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFormSubmitting, setIsFormSubmitting] = useState(false);
 
   useEffect(() => {
-    const handleOpen = () => setIsOpen(true);
+    const handleOpen = () => {
+      setIsOpen(true);
+    };
     window.addEventListener(OPEN_MODAL_EVENT, handleOpen);
     return () => window.removeEventListener(OPEN_MODAL_EVENT, handleOpen);
   }, []);
 
+  const handleClose = () => {
+    if (isFormSubmitting) return;
+    setIsOpen(false);
+  };
+
+  const handleSuccess = () => {
+    setIsOpen(false);
+  };
+
   // Prevent background scroll when modal is open
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
-    return () => { document.body.style.overflow = 'unset'; };
+    if (isOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = prev; };
+    }
   }, [isOpen]);
 
   return (
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center px-4 sm:px-6">
-          {/* Backdrop */}
+          {/* Backdrop Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black/70 backdrop-blur-md"
-            onClick={() => setIsOpen(false)}
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            onClick={handleClose}
           />
 
-          {/* Modal */}
+          {/* Modal Container */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-[720px] rounded-2xl shadow-2xl overflow-hidden"
-            style={{ background: '#1c1c1e', maxHeight: '90vh' }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="relative w-full max-w-[600px] bg-white/20 backdrop-blur-xl border border-white/20 rounded-xl p-6 md:p-10 shadow-2xl overflow-y-auto max-h-[90vh]"
           >
             {/* Close Button */}
             <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 z-20 text-white/50 hover:text-white transition-colors bg-white/10 hover:bg-white/20 rounded-full p-1.5"
+              onClick={handleClose}
+              disabled={isFormSubmitting}
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              <CloseIcon width={20} height={20} strokeWidth={1.5} />
+              <CloseIcon width={24} height={24} strokeWidth={1.5} />
             </button>
 
-            {/* Tally iframe */}
-            <div className="overflow-y-auto pt-6" style={{ maxHeight: '90vh' }}>
-              <ConsultationForm />
-            </div>
+            <ConsultationForm onSuccess={handleSuccess} onSubmittingChange={setIsFormSubmitting} />
           </motion.div>
         </div>
       )}
