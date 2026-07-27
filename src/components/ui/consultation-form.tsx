@@ -85,6 +85,9 @@ export function ConsultationForm({ onSuccess, onSubmittingChange }: { onSuccess?
         throw new Error('Submission failed');
       }
 
+      const responseData = await res.json();
+      console.log('Form submission response:', responseData);
+
       setIsSubmitSuccessful(true);
       if (onSuccess) {
         setTimeout(() => onSuccess(), 3000);
@@ -121,14 +124,14 @@ export function ConsultationForm({ onSuccess, onSubmittingChange }: { onSuccess?
       <h2 className="text-xl md:text-xl font-semibold text-white mb-2 pr-8 leading-tight">
         Get The Best Deal For Your High-Value Secured Loan
       </h2>
-      <p className="text-[10px] md:text-xs text-white/40 mb-4 leading-relaxed pr-4 font-light">
+      <p className="text-[10px] md:text-xs text-white/40 mb-4 leading-tight pr-4 font-light">
         IBSFINCORP, operated by Incetto Business Solutions Private Limited, acts as a strategic loan consulting firm and Corporate DSA. Final approval, interest rates, and terms are determined solely by partner Banks and NBFCs.
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-3" noValidate>
-        <p className="text-white/60 text-[11px] md:text-xs font-medium uppercase tracking-wider">Personal Details</p>
+        <p className="text-white/60 text-[11px] md:text-xs font-medium uppercase tracking-tight">Personal Details</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
             <label htmlFor="name" className="block text-white text-[11px] md:text-xs mb-1 ml-1 font-medium">Name</label>
             <input id="name" {...register('name')} className={inputClass(!!errors.name)} />
@@ -139,28 +142,30 @@ export function ConsultationForm({ onSuccess, onSubmittingChange }: { onSuccess?
             <input id="phone" type="tel" {...register('phone')} className={inputClass(!!errors.phone)} />
             {errors.phone && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.phone.message}</p>}
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
             <label htmlFor="email" className="block text-white text-[11px] md:text-xs mb-1 ml-1 font-medium">Email</label>
             <input id="email" type="email" {...register('email')} className={inputClass(!!errors.email)} />
             {errors.email && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.email.message}</p>}
           </div>
-        </div>
-
-        <div>
-          <label htmlFor="location" className="block text-white text-[11px] md:text-xs mb-1 ml-1 font-medium">Location</label>
-          <div className="relative">
-            <select id="location" {...register('location')} defaultValue="" className={selectClass(!!errors.location)}>
-              <option value="" disabled hidden></option>
-              {locations.map((loc) => (
-                <option key={loc} value={loc}>{loc}</option>
-              ))}
-            </select>
-            <SelectArrow />
+          <div>
+            <label htmlFor="location" className="block text-white text-[11px] md:text-xs mb-1 ml-1 font-medium">Location</label>
+            <div className="relative">
+              <select id="location" {...register('location')} defaultValue="" className={selectClass(!!errors.location)}>
+                <option value="" disabled hidden></option>
+                {locations.map((loc) => (
+                  <option key={loc} value={loc}>{loc}</option>
+                ))}
+              </select>
+              <SelectArrow />
+            </div>
+            {errors.location && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.location.message}</p>}
           </div>
-          {errors.location && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.location.message}</p>}
         </div>
 
-        <p className="text-white/60 text-[11px] md:text-xs font-medium uppercase tracking-wider pt-1">Questions</p>
+        <p className="text-white/60 text-[11px] md:text-xs font-medium uppercase tracking-tight pt-1">Questions</p>
 
         <div>
           <label className="block text-white text-[11px] md:text-xs mb-1 ml-1 font-medium">Are you looking for a loan or referring one?</label>
@@ -187,32 +192,33 @@ export function ConsultationForm({ onSuccess, onSubmittingChange }: { onSuccess?
           {errors.loanOrReferral && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.loanOrReferral.message}</p>}
         </div>
 
-        <div>
-          <label htmlFor="loanRequirements" className="block text-white text-[11px] md:text-xs mb-1 ml-1 font-medium">What are your loan requirements?</label>
-          <div className="relative">
-            <select id="loanRequirements" {...register('loanRequirements')} defaultValue="" className={selectClass(!!errors.loanRequirements)}>
-              <option value="" disabled hidden></option>
-              {amountRanges.map((range) => (
-                <option key={range} value={range}>{range}</option>
-              ))}
-            </select>
-            <SelectArrow />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div>
+            <label htmlFor="loanRequirements" className="block text-white text-[11px] md:text-xs mb-1 ml-1 font-medium">What are your loan requirements?</label>
+            <div className="relative">
+              <select id="loanRequirements" {...register('loanRequirements')} defaultValue="" className={selectClass(!!errors.loanRequirements)}>
+                <option value="" disabled hidden></option>
+                {amountRanges.map((range) => (
+                  <option key={range} value={range}>{range}</option>
+                ))}
+              </select>
+              <SelectArrow />
+            </div>
+            {errors.loanRequirements && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.loanRequirements.message}</p>}
           </div>
-          {errors.loanRequirements && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.loanRequirements.message}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="loanType" className="block text-white text-[11px] md:text-xs mb-1 ml-1 font-medium">What type of loan are you looking for?</label>
-          <div className="relative">
-            <select id="loanType" {...register('loanType')} defaultValue="" className={selectClass(!!errors.loanType)}>
-              <option value="" disabled hidden></option>
-              {loanTypes.map((type) => (
-                <option key={type} value={type}>{type}</option>
-              ))}
-            </select>
-            <SelectArrow />
+          <div>
+            <label htmlFor="loanType" className="block text-white text-[11px] md:text-xs mb-1 ml-1 font-medium">What type of loan are you looking for?</label>
+            <div className="relative">
+              <select id="loanType" {...register('loanType')} defaultValue="" className={selectClass(!!errors.loanType)}>
+                <option value="" disabled hidden></option>
+                {loanTypes.map((type) => (
+                  <option key={type} value={type}>{type}</option>
+                ))}
+              </select>
+              <SelectArrow />
+            </div>
+            {errors.loanType && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.loanType.message}</p>}
           </div>
-          {errors.loanType && <p className="text-red-400 text-[10px] mt-1 ml-1">{errors.loanType.message}</p>}
         </div>
 
         <div>

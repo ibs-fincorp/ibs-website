@@ -5,7 +5,6 @@ export interface Partner {
 
 export const PARTNERS: Partner[] = [
   { name: "ICICI Bank", logo: "/assets/banks/icici.webp" },
-  { name: "Kotak", logo: "/assets/banks/kotak.webp" },
   { name: "Small Finance Bank", logo: "/assets/banks/sf.webp" },
   { name: "HDFC BANK", logo: "/assets/banks/hdfc.webp" },
   { name: "AXIS BANK", logo: "/assets/banks/axisbank.webp" },
@@ -17,7 +16,6 @@ export const PARTNERS: Partner[] = [
   { name: "Deutsche Bank", logo: "/assets/banks/deutsche.webp" },
   { name: "Axis Finance", logo: "/assets/banks/axisfin.webp" },
   { name: "TATA CAPITAL", logo: "/assets/banks/tatacapital.webp" },
-  { name: "Kotak Prime", logo: "/assets/banks/kotakprime.webp" },
   { name: "Poonawalla", logo: "/assets/banks/poonawalla.webp" },
   { name: "Cholamandalam", logo: "/assets/banks/cholamandalam.webp" },
   { name: "Aditya Birla Capital", logo: "/assets/banks/adityabirla.webp" },

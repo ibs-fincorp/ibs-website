@@ -135,12 +135,12 @@ export default function ComparisonAppSection() {
             {/* Video container with sound toggle */}
             <div
               onClick={() => toggleMute()}
-              className="w-full h-full md:w-[300px] md:h-[570px] relative z-10 rounded-[48px] overflow-hidden hover:scale-105 transition-transform duration-500 flex items-center justify-center cursor-pointer group"
+              className="w-full h-full md:w-[310px] md:h-[620px] relative z-10 rounded-[50px] overflow-hidden hover:scale-105 transition-transform duration-500 flex items-center justify-center cursor-pointer group"
 
             >
               <video
                 ref={videoRef}
-                src="/assets/mobvideolat-processed.mp4"
+                src="/assets/ibs-mob-processed.mp4"
                 autoPlay
                 loop
                 muted={isMuted}

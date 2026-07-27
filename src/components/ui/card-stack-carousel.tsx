@@ -5,6 +5,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HERO_VIDEOS } from "@/constants/media";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
+const CUSTOMERS = [
+  {
+    name: "Mr. Sampath Raman",
+    role: "Founder & CMD",
+    company: "DPK Generators Pvt LTD"
+  },
+  {
+    name: "Mr. Seshgiri Darshan",
+    role: "Management Trustee",
+    company: "SaS Charitable Trust"
+  },
+  {
+    name: "Dr. R Pruthviraj",
+    role: "Principal & Professor in Physiotherapy",
+    company: "Reputed College in Bangalore"
+  },
+  {
+    name: "Mr. Suresh Binani",
+    role: "General Secretary",
+    company: "Milestones Institute of Pharmaceutical Sciences"
+  }
+];
+
 export default function CardStackCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const VIDEOS = [...HERO_VIDEOS];
@@ -18,7 +41,6 @@ export default function CardStackCarousel() {
       const [first, ...rest] = prev;
       return [...rest, first];
     });
-    setIsMuted(true);
   };
 
   const handleVideoEnded = () => {
@@ -29,10 +51,13 @@ export default function CardStackCarousel() {
     const frontSrc = cards[0];
     const video = videoRefs.current.get(frontSrc);
     if (video) {
-      video.muted = false;
-      video.currentTime = 0;
-      video.play().catch(() => {});
-      setIsMuted(false);
+      const willBeMuted = !video.muted;
+      video.muted = willBeMuted;
+      if (!willBeMuted) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      }
+      setIsMuted(willBeMuted);
     }
   };
 
@@ -119,6 +144,36 @@ export default function CardStackCarousel() {
                 onEnded={isFront ? handleVideoEnded : undefined}
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
               />
+              {/* Customer Info Overlay */}
+              <div className="absolute top-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-b from-black/85 via-black/45 to-transparent text-white z-10 text-left pointer-events-none">
+                <h3 className="font-semibold text-sm sm:text-base tracking-tight text-gold-500">
+                  {CUSTOMERS[VIDEOS.indexOf(src) % CUSTOMERS.length].name}
+                </h3>
+                <p className="text-[10px] sm:text-xs text-white/95 font-normal leading-normal">
+                  {CUSTOMERS[VIDEOS.indexOf(src) % CUSTOMERS.length].role}
+                </p>
+                <p className="text-[9px] sm:text-[11px] font-semibold tracking-wide">
+                  {CUSTOMERS[VIDEOS.indexOf(src) % CUSTOMERS.length].company}
+                </p>
+              </div>
+
+              {/* Speaker Overlay Indicator for the front card */}
+              {isFront && (
+                <div className="absolute bottom-4 right-4 z-40 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-white border border-white/10 shadow-lg pointer-events-none">
+                  {!isMuted ? (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                  ) : (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <line x1="23" y1="9" x2="17" y2="15"></line>
+                      <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                  )}
+                </div>
+              )}
             </motion.div>
           );
         })}

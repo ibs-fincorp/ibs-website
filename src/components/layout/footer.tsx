@@ -37,7 +37,8 @@ export default function Footer() {
                     <span>REGISTERED OFFICE - CHENNAI</span>
                   </p>
                   <span className="text-white/80 leading-relaxed text-[11px] sm:text-sm block px-1 max-w-xs mx-auto md:mx-0">
-                    3rd Floor, Gulecha Towers, No. 158, Arcot Rd, Ottagapalayam, Somasundara Bharathi Nagar, Vadapalani, Chennai, Greater Chennai, Tamil Nadu 600026
+                    2nd Floor, No.158, Gulecha Towers, Arcot Road, Vadapalani,
+Chennai, Chennai, Tamil Nadu, 600026
                   </span>
                 </div>
                 <div>
