@@ -55,6 +55,12 @@ body {
     linear-gradient(to bottom, #050505 0%, #050505 10%, #291b00 20%, #d49f05 65%, #ffdf2a 85%, #ffffff 100%);
 }
 
+.bg-legal-gradient {
+  background:
+    repeating-linear-gradient(to right, rgba(0, 0, 0, 0.15) 0%, transparent 4%, rgba(0, 0, 0, 0.15) 8%),
+    linear-gradient(to bottom, #050505 0%, #291b00 12%, #c49204 30%, #c49204 78%, #291b00 92%, #050505 100%);
+}
+
 .bg-comparison-gradient {
   background:
     linear-gradient(to top, transparent 55%, #ffffff 75%),

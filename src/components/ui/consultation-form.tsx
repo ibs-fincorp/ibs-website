@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
 import { captureUtm, getUtm } from '@/lib/utm';
 import { formSchema, type FormValues } from '@/lib/validations';
 
@@ -258,7 +259,15 @@ export function ConsultationForm({ onSuccess, onSubmittingChange }: { onSuccess?
               <svg className="absolute w-2.5 h-2.5 text-white opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
             <span className="text-[10px] md:text-[11px] text-white/70 group-hover:text-white/90 transition-colors leading-snug">
-              I agree to the Privacy Policy and Terms & Conditions and consent to being contacted via Call, SMS or WhatsApp.
+              I agree to the{" "}
+              <Link href="/privacy-policy" target="_blank" className="text-gold-500 hover:underline underline-offset-2">
+                Privacy Policy
+              </Link>{" "}
+              and{" "}
+              <Link href="/terms-conditions" target="_blank" className="text-gold-500 hover:underline underline-offset-2">
+                Terms & Conditions
+              </Link>{" "}
+              and consent to being contacted via Call, SMS or WhatsApp.
             </span>
           </label>
           {errors.privacyConsent && <p className="text-red-400 text-[10px] ml-1">{errors.privacyConsent.message}</p>}

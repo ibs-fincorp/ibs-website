@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -74,13 +75,15 @@ Chennai, Chennai, Tamil Nadu, 600026
             {/* Quick Links */}
             <div className="lg:col-span-2">
               <h3 className="font-semibold mb-6 tracking-tight text-white text-center md:text-left text-sm md:text-base">QUICK LINKS</h3>
-              <ul className="grid grid-cols-3 md:grid-cols-1 gap-y-1 gap-x-2 md:gap-0 md:space-y-2.5 font-normal text-xs sm:text-sm tracking-tight text-center md:text-left">
+              <ul className="grid grid-cols-3 md:grid-cols-1 gap-y-1 gap-x-2 md:gap-0 md:space-y-1 font-normal text-xs sm:text-sm tracking-tight text-center md:text-left">
                 <li><a href="#why-us" className="hover:text-gold-500 transition-colors">Services</a></li>
-                <li><a href="#solutions" className="hover:text-gold-500 transition-colors">Loan Products</a></li>
-                <li><a href="#about" className="hover:text-gold-500 transition-colors">About Us</a></li>
-                <li><a href="#comparison" className="hover:text-gold-500 transition-colors">How It Works</a></li>
-                <li><a href="#locations" className="hover:text-gold-500 transition-colors">Locations</a></li>
-                <li><a href="#" className="hover:text-gold-500 transition-colors">Privacy Policy</a></li>
+                <li><a href="#solutions" className="hover:text-gold-500 transition-colors">How It Works</a></li>
+                <li><a href="#about" className="hover:text-gold-500 transition-colors">Loan Products</a></li>
+                <li><a href="#comparison" className="hover:text-gold-500 transition-colors">Locations</a></li>
+                <li><a href="#locations" className="hover:text-gold-500 transition-colors">About Us</a></li>
+                <li><Link href="/disclosure" className="hover:text-gold-500 transition-colors">Disclosure</Link></li>
+                <li><Link href="/privacy-policy" className="hover:text-gold-500 transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms-conditions" className="hover:text-gold-500 transition-colors">Terms & Conditions</Link></li>
               </ul>
             </div>
 
@@ -117,6 +120,13 @@ Chennai, Chennai, Tamil Nadu, 600026
           <div className="border-t border-white/20 pt-6 flex flex-col md:flex-row items-center justify-center md:justify-between text-center text-xs md:text-sm font-normal tracking-tight space-y-1">
             <p>© 2026 IBSFINCORP. All Rights Reserved.</p>
             <a href="https://www.theinternetcompany.one" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/80 transition-colors">Designed & Developed By TIC Global Services</a>
+          </div>
+          <div className="border-t border-white/20 mt-6 pt-6">
+            <p className="text-[10px] md:text-xs text-center leading-relaxed tracking-tight font-normal text-white/50 space-x-1">
+              <span>CIN: U74110TN2022PTC155121</span>
+              <span className="text-white/20">|</span>
+              <span>GSTIN: 33AAGCI8352Q1ZZ</span>
+            </p>
           </div>
           <div className="border-t border-white/20 mt-6 pt-6">
             <p className="text-[10px] md:text-xs text-center max-w-6xl leading-relaxed tracking-tight font-normal text-white/50">
