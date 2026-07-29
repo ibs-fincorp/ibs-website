@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CloseIcon } from "@/components/ui/icons";
 
@@ -30,10 +31,12 @@ const itemVariants = {
 };
 
 export default function Header() {
+  const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
+  const logoHref = pathname === '/' ? '/' : '/#footer';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +54,7 @@ export default function Header() {
         <div className="w-full px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
           <div className="flex justify-start">
-            <Link href="/">
+            <Link href={logoHref}>
               <Image src="/assets/logo.png" alt="IBS FINCORP Logo" width={100} height={25} style={{ height: "auto" }} className="object-contain rounded-md" />
             </Link>
           </div>
