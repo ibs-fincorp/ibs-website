@@ -95,23 +95,63 @@ export default function LocationsSection() {
         </a>
 
         {/* Location Points */}
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-3 text-base md:text-lg font-medium">
-          {(['chennai', 'bangalore', 'coimbatore', 'madurai'] as const).map((key) => (
-            <button
-              key={key}
-              onClick={() => setActiveLocation(key)}
-              className="flex items-center gap-2 transition-colors cursor-pointer text-dark-900 hover:text-gold-500"
-            >
-              <span
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  activeLocation === key
-                    ? 'bg-gold-350 ring-4 ring-gold-350/30 scale-125'
-                    : 'bg-gold-350/40'
-                }`}
-              />
-              {key.charAt(0).toUpperCase() + key.slice(1)}
-            </button>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 max-w-6xl mx-auto">
+          {([
+            { state: 'Tamil Nadu', cities: ['Chennai', 'Coimbatore', 'Madurai', 'Salem'] },
+            { state: 'Karnataka', cities: ['Bangalore', 'Mysore'] },
+            { state: 'Pondicherry (UT)', cities: ['Puducherry'] },
+            { state: 'Other Major Indian Cities', cities: ['Subject To Eligibility & Lender Coverage'] },
+          ] as const).map((group) => {
+            const cityMapKey: Record<string, 'chennai' | 'bangalore' | 'coimbatore' | 'madurai' | null> = {
+              Chennai: 'chennai',
+              Coimbatore: 'coimbatore',
+              Madurai: 'madurai',
+              Salem: null,
+              Bangalore: 'bangalore',
+              Mysore: null,
+              Puducherry: null,
+              'Subject To Eligibility & Lender Coverage': null,
+            };
+            const hasActiveCity = group.cities.some((c) => cityMapKey[c] === activeLocation);
+
+            return (
+              <div key={group.state} className="text-left">
+                <div className="flex items-center gap-3">
+                  <span
+                    className={`w-3.5 h-3.5 rounded-full shrink-0 transition-all duration-300 bg-[#FFBB00]`}
+                  />
+                  <div>
+                    <h3 className="text-base md:text-lg font-medium text-dark-900 leading-tight tracking-tight">{group.state}</h3>
+                    <p className="text-sm leading-tight tracking-tight">
+                      {group.cities.map((city, i) => {
+                        const mapKey = cityMapKey[city];
+                        const isActive = mapKey !== null && mapKey === activeLocation;
+                        const separator = i > 0 ? <span> · </span> : null;
+
+                        if (mapKey) {
+                          return (
+                            <span key={city}>
+                              {separator}
+                              <button
+                                onClick={() => setActiveLocation(mapKey)}
+                                className={`cursor-pointer transition-colors hover:text-[#FFBB00] ${
+                                  isActive ? 'text-[#FFBB00] font-medium' : ''
+                                }`}
+                              >
+                                {city}
+                              </button>
+                            </span>
+                          );
+                        }
+
+                        return <span key={city}>{separator}{city}</span>;
+                      })}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

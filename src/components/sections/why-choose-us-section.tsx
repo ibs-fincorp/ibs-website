@@ -50,7 +50,7 @@ const SwipeCard = ({ reason, isTop, index, totalCards, setCards, originalIndex }
 
   return (
     <motion.div
-      className="absolute inset-0 bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.1)] flex flex-col origin-bottom"
+      className="absolute inset-0 bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.1),inset_0_0_30px_rgba(0,0,0,0.06)] flex flex-col origin-bottom"
       style={{
         x,
         rotate: cardRotate,
