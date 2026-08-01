@@ -59,7 +59,29 @@ export async function POST(request: Request) {
     'LOAN TYPE': parsed.data.loanType,
     'CIBIL Score': parsed.data.cibilScore,
     'UTM source': fields.landing_page ?? '',
+    'Campaign': '@landing-page-form-leads',
   };
+
+  const gasUrl = 'https://script.google.com/macros/s/AKfycbxc1QimfsndpJ83hqxwzm9dV0yafKeYo7_yUWR2SsslL7T3_Z4gPzUQBi5cOi8L-IS8/exec';
+
+  if (gasUrl) {
+    try {
+      await fetch(gasUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...parsed.data,
+          landing_page: fields.landing_page ?? '',
+          referrer: fields.referrer ?? '',
+          utm_source: fields.utm_source ?? '',
+          utm_medium: fields.utm_medium ?? '',
+          utm_campaign: fields.utm_campaign ?? '',
+        }),
+      });
+    } catch (error) {
+      console.error('Google Sheets log failed:', error);
+    }
+  }
 
   const response = await fetch(
     `https://next-api.telecrm.in/enterprise/${enterpriseId}/autoupdatelead`,
@@ -69,7 +91,7 @@ export async function POST(request: Request) {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ fields: teleCrmFields, campaign: '@landing-page-form-leads' }),
+      body: JSON.stringify({ fields: teleCrmFields }),
     }
   );
 
