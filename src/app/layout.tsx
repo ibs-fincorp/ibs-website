@@ -20,7 +20,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "IBSFincorp | High-Value Secured Loans & Financial Solutions",
+  title: "IBSFINCORP | High-Value Secured Loans & Financial Solutions",
   description: "Get the best deal for your high-value secured loan. Premium doorstep experience, fast and transparent process.",
   keywords: [
     "Secured Loans",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "LAP",
     "Business Loan",
     "Home Loan Balance Transfer",
-    "IBSFincorp",
+    "IBSFINCORP",
     "High-Value Loans",
     "Mortgage Loans",
     "Finance India"
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     canonical: "https://www.ibsfincorp.com",
   },
   openGraph: {
-    title: "IBSFincorp | High-Value Secured Loans & Financial Solutions",
+    title: "IBSFINCORP | High-Value Secured Loans & Financial Solutions",
     description: "Get the best deal for your high-value secured loan. Premium doorstep experience, fast and transparent process.",
     url: "https://www.ibsfincorp.com",
-    siteName: "IBSFincorp",
+    siteName: "IBSFINCORP",
     locale: "en_US",
     type: "website",
     images: [
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
         url: "https://www.ibsfincorp.com/assets/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "IBSFincorp - High-Value Secured Loans",
+        alt: "IBSFINCORP - High-Value Secured Loans",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IBSFincorp | High-Value Secured Loans & Financial Solutions",
+    title: "IBSFINCORP | High-Value Secured Loans & Financial Solutions",
     description: "Get the best deal for your high-value secured loan.",
     images: ["https://www.ibsfincorp.com/assets/og-image.jpg"],
   },
