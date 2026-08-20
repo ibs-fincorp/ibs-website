@@ -15,8 +15,8 @@ export function Preloader() {
       window.scrollTo(0, 0);
     }
 
-    const ZOOM_DELAY = 4600;
-    const UNMOUNT_DELAY = 7200;
+    const ZOOM_DELAY = 1350;
+    const UNMOUNT_DELAY = 2000;
 
     const zoomTimer = setTimeout(() => {
       setIsZooming(true);
@@ -42,17 +42,17 @@ export function Preloader() {
     visible: (stage: number) => {
       let delay = 0;
       if (stage === 1) delay = 0;
-      if (stage === 2) delay = 1.2;
-      if (stage === 3) delay = 2.4;
-      
-      return { 
-        pathLength: 1, 
-        fillOpacity: 1, 
+      if (stage === 2) delay = 0.35;
+      if (stage === 3) delay = 0.7;
+
+      return {
+        pathLength: 1,
+        fillOpacity: 1,
         strokeOpacity: 0,
-        transition: { 
-          pathLength: { duration: 1, ease: "easeInOut", delay: delay },
-          fillOpacity: { duration: 0.5, ease: "easeIn", delay: delay + 0.8 },
-          strokeOpacity: { duration: 0.5, ease: "easeIn", delay: delay + 0.8 }
+        transition: {
+          pathLength: { duration: 0.45, ease: "easeInOut", delay: delay },
+          fillOpacity: { duration: 0.3, ease: "easeIn", delay: delay + 0.3 },
+          strokeOpacity: { duration: 0.3, ease: "easeIn", delay: delay + 0.3 }
         }
       };
     }
@@ -62,15 +62,15 @@ export function Preloader() {
     hidden: { fillOpacity: 0 },
     visible: (stage: number) => {
       let delay = 0;
-      if (stage === 1) delay = 0.8;
-      if (stage === 2) delay = 2.0;
-      if (stage === 3) delay = 3.2;
-      if (stage === 4) delay = 3.4; // Starts as text fill is ending
-      
-      return { 
-        fillOpacity: 1, 
-        transition: { 
-          fillOpacity: { duration: 0.5, ease: "easeIn", delay: delay }
+      if (stage === 1) delay = 0.3;
+      if (stage === 2) delay = 0.65;
+      if (stage === 3) delay = 1.0;
+      if (stage === 4) delay = 1.0; // Starts as text fill is ending
+
+      return {
+        fillOpacity: 1,
+        transition: {
+          fillOpacity: { duration: 0.3, ease: "easeIn", delay: delay }
         }
       };
     }
@@ -88,7 +88,7 @@ export function Preloader() {
                   <motion.g
                     initial={{ scale: 0.48 }}
                     animate={isZooming ? { scale: 150 } : { scale: 0.48 }}
-                    transition={{ duration: 2.5, ease: "easeInOut" }}
+                    transition={{ duration: 0.65, ease: "easeInOut" }}
                   >
                     <g transform="translate(-208.5, -114.5)">
                       <motion.g
@@ -152,13 +152,13 @@ export function Preloader() {
               <motion.g
                 initial={{ scale: 0.48 }}
                 animate={isZooming ? { scale: 150 } : { scale: 0.48 }}
-                transition={{ duration: 2.5, ease: "easeInOut" }}
+                transition={{ duration: 0.65, ease: "easeInOut" }}
                 style={{ transformOrigin: "center" }}
               >
                 <motion.g
                   initial={{ opacity: 1 }}
                   animate={isZooming ? { opacity: 0 } : { opacity: 1 }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                 >
                   <g transform="translate(-208.5, -114.5)">
                     <motion.g initial="hidden" animate="visible">

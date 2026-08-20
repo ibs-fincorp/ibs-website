@@ -11,6 +11,6 @@ export const COLORS = {
 } as const;
 
 export const TIMINGS = {
-  PRELOADER_ZOOM_START: 4600,
-  PRELOADER_UNMOUNT: 7200,
+  PRELOADER_ZOOM_START: 1350,
+  PRELOADER_UNMOUNT: 2000,
 } as const;

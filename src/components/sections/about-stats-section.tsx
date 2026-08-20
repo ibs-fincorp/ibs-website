@@ -24,9 +24,9 @@ export default function AboutStatsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.9fr_1fr] gap-6">
 
           {/* Card 1: Loans Disbursed */}
-          <div className="bg-[#F7F7F7] text-dark-900 rounded-[16px] p-2 flex flex-col h-[500px] md:h-[450px] shadow-sm border border-gray-100">
+          <div className="bg-[#F7F7F7] text-dark-900 rounded-[16px] p-2 flex flex-col shadow-sm border border-gray-100 overflow-hidden">
             {/* Image Part Card */}
-            <div className="bg-dark-700 rounded-[16px] flex-1 relative flex items-center justify-center p-4">
+            <div className="bg-dark-700 rounded-[16px] h-[280px] md:h-[300px] relative flex items-center justify-center p-4">
               <div className="relative w-full h-full max-h-[300px] flex items-center justify-center">
                 <StatsGraphic className="w-[95%] h-[95%] max-h-[310px]" />
               </div>
@@ -39,13 +39,13 @@ export default function AboutStatsSection() {
                 <p className="text-base font-medium tracking-tight whitespace-nowrap">Loans Disbursed</p>
               </div>
               <p className="text-[14px] text-[#828282] leading-normal tracking-tight xl:mt-1">
-                Successfully facilitated loan disbursements worth over ₹3000   crore across diverse financial needs.
+                Successfully facilitated loan disbursements worth over ₹3000 crore across diverse financial needs.
               </p>
             </div>
           </div>
 
           {/* Card 2: Partners & Commission */}
-          <div className="flex flex-col gap-6 h-[450px]">
+          <div className="flex flex-col gap-6 h-[450px] lg:h-full">
 
             {/* Top Center Card */}
             <div className="bg-[#F7F7F7] rounded-[16px] p-2 flex-1 flex flex-col shadow-sm border border-gray-100">
@@ -71,7 +71,7 @@ export default function AboutStatsSection() {
           </div>
 
           {/* Card 3: Satisfaction */}
-          <div className="bg-[#F7F7F7] text-dark-900 rounded-[16px] p-3 flex flex-col h-[450px] shadow-sm ">
+          <div className="bg-[#F7F7F7] text-dark-900 rounded-[16px] p-3 flex flex-col h-[450px] lg:h-full shadow-sm ">
             {/* Image Part Card */}
             <div className="bg-white rounded-[16px] flex-1 relative flex flex-col items-center justify-center p-4">
               <div className="relative w-40 h-40 mb-4">

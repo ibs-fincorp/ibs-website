@@ -36,6 +36,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.ibsfincorp.com",
   },
+  icons: {
+    icon: "/assets/logoibs.svg",
+  },
   openGraph: {
     title: "IBSFINCORP | High-Value Secured Loans & Financial Solutions",
     description: "Get the best deal for your high-value secured loan. Premium doorstep experience, fast and transparent process.",
@@ -73,7 +76,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground overflow-x-hidden">
         <Preloader />
         {children}
-        <a href="https://wa.link/xpwwox" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 hover:scale-110 transition-transform duration-300">
+        <a href=" https://wa.link/2df30k" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 hover:scale-110 transition-transform duration-300">
           <Image src="/assets/whatsapp-icon.png" alt="Contact Us" width={60} height={60} className="drop-shadow-2xl rounded-full" />
         </a>
         {/* Tally embed script for dynamic iframe height */}
