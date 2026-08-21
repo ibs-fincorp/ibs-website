@@ -35,6 +35,21 @@ const CUSTOMERS = [
     name: "Mr. Suresh Binani",
     role: "General Secretary",
     company: "Milestones Institute of Pharmaceutical Sciences"
+  },
+  {
+    name: "Mr. DK Raju",
+    role: "Proprietor",
+    company: "DK Chicken and Poultry Traders"
+  },
+  {
+    name: "Mr. Fayaz Ahmed",
+    role: "Managing Director",
+    company: "Gulf Stone Engineering PVT LTD, Chennai"
+  },
+  {
+    name: "Mr. Ramasamy",
+    role: "Founder & Managing Director",
+    company: "Galaxy Enterprises Pvt Ltd"
   }
 ];
 
@@ -47,20 +62,19 @@ export default function Carousel3D() {
   const autoPlayTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>(new Array(IMAGES.length).fill(null));
 
+  const faceCount = IMAGES.length;
+
   useEffect(() => {
     const updateDeviceSettings = () => {
       const width = window.innerWidth;
-      if (width <= 640) setCylinderWidth(2800);
-      else if (width <= 768) setCylinderWidth(3200);
-      else if (width <= 1024) setCylinderWidth(3400);
-      else setCylinderWidth(3800);
+      const perFace = width <= 640 ? 233 : width <= 768 ? 267 : width <= 1024 ? 283 : 316;
+      setCylinderWidth(faceCount * perFace);
     };
     updateDeviceSettings();
     window.addEventListener("resize", updateDeviceSettings);
     return () => window.removeEventListener("resize", updateDeviceSettings);
-  }, []);
+  }, [faceCount]);
 
-  const faceCount = IMAGES.length;
   const faceWidth = (cylinderWidth / faceCount) * 1.1;
   const radius = cylinderWidth / (1.7 * Math.PI);
   const angleStep = 360 / faceCount;

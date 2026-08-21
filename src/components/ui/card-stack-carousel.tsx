@@ -25,6 +25,21 @@ const CUSTOMERS = [
     name: "Mr. Suresh Binani",
     role: "General Secretary",
     company: "Milestones Institute of Pharmaceutical Sciences"
+  },
+  {
+    name: "Mr. DK Raju",
+    role: "Proprietor",
+    company: "DK Chicken and Poultry Traders"
+  },
+  {
+    name: "Mr. Fayaz Ahmed",
+    role: "Managing Director",
+    company: "Gulf Stone Engineering PVT LTD, Chennai"
+  },
+  {
+    name: "Mr. Ramasamy",
+    role: "Founder & Managing Director",
+    company: "Galaxy Enterprises Pvt Ltd"
   }
 ];
 
