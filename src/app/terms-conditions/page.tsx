@@ -4,7 +4,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | IBSFincorp",
+  title: "Terms & Conditions | IBSFINCORP",
   description:
     "Terms & Conditions governing the use of IBSFINCORP (Incetto Business Solutions Private Limited) website and services.",
   alternates: {

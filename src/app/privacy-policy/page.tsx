@@ -3,7 +3,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | IBSFincorp",
+  title: "Privacy Policy | IBSFINCORP",
   description:
     "Privacy Policy of IBSFINCORP (Incetto Business Solutions Private Limited). Learn how we collect, use, and protect your personal data.",
   alternates: {

@@ -3,7 +3,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Corporate DSA Disclosure | IBSFincorp",
+  title: "Corporate DSA Disclosure | IBSFINCORP",
   description:
     "IBSFINCORP (Incetto Business Solutions Private Limited) is a Corporate DSA and strategic loan consulting firm — not a Bank or NBFC. Read our full disclosure.",
   alternates: {
