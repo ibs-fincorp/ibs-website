@@ -87,7 +87,7 @@ Chennai, Chennai, Tamil Nadu, 600026
                     <span>BRANCH OFFICE - BANGALORE</span>
                   </p>
                   <span className="text-white/80 leading-relaxed text-[11px] sm:text-sm block px-1 max-w-xs mx-auto md:mx-0">
-                    756, 10th Main Rd, 4th Block, Jayanagar, Bengaluru, Karnataka 560011
+                    362/7, 2nd Floor, 16th Main Road, Jayanagar 4th Block, Bengaluru, Karnataka – 560041
                   </span>
                 </div>
                 <div>
@@ -106,6 +106,15 @@ Chennai, Chennai, Tamil Nadu, 600026
                   </p>
                   <span className="text-white/80 leading-relaxed text-[11px] sm:text-sm block px-1 max-w-xs mx-auto md:mx-0">
                     9, Betaspace, 35, Desabandhu St, Ram Nagar, Coimbatore, Tamil Nadu 641009
+                  </span>
+                </div>
+                <div>
+                  <p className="inline-flex items-start text-left text-dark-900 gap-1.5 font-semibold mb-2 leading-tight">
+                    <Image src="/assets/location.svg" alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
+                    <span>MYSURU OFFICE</span>
+                  </p>
+                  <span className="text-white/80 leading-relaxed text-[11px] sm:text-sm block px-1 max-w-xs mx-auto md:mx-0">
+                    No. 658, 4th Floor, Vishwamanava Double Road, Saraswathipuram, Mysuru, Karnataka – 570009
                   </span>
                 </div>
               </div>
