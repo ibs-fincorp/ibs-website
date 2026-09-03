@@ -5,6 +5,7 @@ import Image from "next/image";
 import { TextBlurReveal } from "@/components/ui/text-blur-reveal";
 import { motion, useMotionValue, useTransform, animate, PanInfo } from "framer-motion";
 import type { Reason, ReasonWithIndex, SwipeCardProps } from "@/types/reasons";
+import { CDN_URL } from "@/lib/cdn";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -127,32 +128,32 @@ export default function WhyChooseUsSection() {
     {
       title: "End-To-End Support",
       description: "From profile assessment to disbursement, every step is managed with white-glove service — no hand-offs, no confusion.",
-      image: "/assets/hc-01.png"
+      image: `${CDN_URL}/assets/hc-01.png`
     },
     {
       title: "Best-Fit Lender Match",
       description: "We present multiple lender options tailored to your financial profile — not commission-led recommendations.",
-      image: "/assets/hc-02.png"
+      image: `${CDN_URL}/assets/hc-02.png`
     },
     {
       title: "Doorstep Service",
       description: "Document collection and coordination come to you. No queues, no branch visits required at any stage.",
-      image: "/assets/hc-03.png"
+      image: `${CDN_URL}/assets/hc-03.png`
     },
     {
       title: "Faster Turnaround",
       description: "Streamlined submission process, coordinated with lenders to align disbursement to your timeline.",
-      image: "/assets/hc-04.png"
+      image: `${CDN_URL}/assets/hc-04.png`
     },
     {
       title: "Pre-Login Eligibility",
       description: "Early Profile Assessment Designed to Avoid Unnecessary CIBIL Enquiries and Improve Lender Alignment.",
-      image: "/assets/hc-05.png"
+      image: `${CDN_URL}/assets/hc-05.png`
     },
     {
       title: "Compliance-First",
       description: "Operating As A Strategic Loan Consultant, Not A Lender. All Loans Are Governed By RBI-Licensed Institutions.",
-      image: "/assets/hc-06.png"
+      image: `${CDN_URL}/assets/hc-06.png`
     }
   ];
 

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { TextBlurReveal } from "@/components/ui/text-blur-reveal";
 import { openConsultationModal } from "@/components/ui/consultation-modal";
 import { ArrowUpRight } from "@/components/ui/icons";
+import { CDN_URL } from "@/lib/cdn";
 
 export default function CtaSection() {
   return (
@@ -12,7 +13,7 @@ export default function CtaSection() {
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/assets/bookaconsultation.png"
+              src={`${CDN_URL}/assets/bookaconsultation.png`}
               alt="Book a Consultation"
               fill
               sizes="(max-width: 1400px) 100vw, 1400px"

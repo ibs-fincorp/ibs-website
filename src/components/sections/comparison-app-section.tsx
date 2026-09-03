@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TextBlurReveal } from "@/components/ui/text-blur-reveal";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { CDN_URL } from "@/lib/cdn";
 
 const AnimatedTick = ({ idx }: { idx: number }) => (
   <svg
@@ -105,7 +106,7 @@ export default function ComparisonAppSection() {
             <div className="flex flex-col items-end text-right w-full max-w-xl lg:max-w-[320px]">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl border border-gray-100 mb-4">
                 <div className="relative w-13 h-13">
-                  <Image src="/assets/higherloan.png" alt="Higher Loan Icon" fill sizes="52px" className="object-contain" />
+                  <Image src={`${CDN_URL}/assets/higherloan.png`} alt="Higher Loan Icon" fill sizes="52px" className="object-contain" />
                 </div>
               </div>
               <h3 className="font-semibold text-xl md:text-2xl mb-2">Higher Loan Amounts</h3>
@@ -117,7 +118,7 @@ export default function ComparisonAppSection() {
             <div className="flex flex-col items-end text-right w-full max-w-xl lg:max-w-[320px]">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl border border-gray-100 mb-4">
                 <div className="relative w-13 h-13">
-                  <Image src="/assets/flexible.png" alt="Flexible Repayment Icon" fill sizes="52px" className="object-contain" />
+                  <Image src={`${CDN_URL}/assets/flexible.png`} alt="Flexible Repayment Icon" fill sizes="52px" className="object-contain" />
                 </div>
               </div>
               <h3 className="font-semibold text-xl md:text-2xl mb-2">Flexible Repayment Tenures</h3>
@@ -140,7 +141,7 @@ export default function ComparisonAppSection() {
             >
               <video
                 ref={videoRef}
-                src="/assets/ibs-mob-processed.mp4"
+                src={`${CDN_URL}/assets/ibs-mob-processed.mp4`}
                 autoPlay
                 loop
                 muted={isMuted}
@@ -176,7 +177,7 @@ export default function ComparisonAppSection() {
             <div className="flex flex-col items-start text-left w-full max-w-xl lg:max-w-[320px]">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl border border-gray-100 mb-4">
                 <div className="relative w-13 h-13">
-                  <Image src="/assets/doorstep.png" alt="Doorstep Assistance Icon" fill sizes="52px" className="object-contain" />
+                  <Image src={`${CDN_URL}/assets/doorstep.png`} alt="Doorstep Assistance Icon" fill sizes="52px" className="object-contain" />
                 </div>
               </div>
               <h3 className="font-semibold text-xl md:text-2xl mb-2">Doorstep Assistance</h3>
@@ -188,7 +189,7 @@ export default function ComparisonAppSection() {
             <div className="flex flex-col items-start text-left w-full max-w-xl lg:max-w-[320px]">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl border border-gray-100 mb-4">
                 <div className="relative w-13 h-13">
-                  <Image src="/assets/trust.png" alt="Trusted Partner Icon" fill sizes="52px" className="object-contain" />
+                  <Image src={`${CDN_URL}/assets/trust.png`} alt="Trusted Partner Icon" fill sizes="52px" className="object-contain" />
                 </div>
               </div>
               <h3 className="font-semibold text-xl md:text-2xl mb-2">Trusted & Reliable Partner</h3>

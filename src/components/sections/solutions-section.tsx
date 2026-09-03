@@ -4,61 +4,62 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { AnimatedHomeIcon, AnimatedCardIcon, AnimatedSeamlessIcon, AnimatedPersonIcon } from "@/components/ui/animated-icons";
 import { TextBlurReveal } from "@/components/ui/text-blur-reveal";
+import { CDN_URL } from "@/lib/cdn";
 
 const SUB_CARDS = [
   {
     id: "termloan",
     title: "Term Loan",
-    icon: "/assets/solutions/termloan.svg",
+    icon: `${CDN_URL}/assets/solutions/termloan.svg`,
     className: "left-[2%] top-[10%] w-[15%] h-[28%]",
     type: "outer",
   },
   {
     id: "industry",
     title: "Industrial Property Purchase & Construction",
-    icon: "/assets/solutions/industry.svg",
+    icon: `${CDN_URL}/assets/solutions/industry.svg`,
     className: "left-[20%] top-[10%] w-[15%] h-[28%]",
     type: "inner",
   },
   {
     id: "dropline",
     title: "Dropline OD (DLOD)",
-    icon: "/assets/solutions/dlod.svg",
+    icon: `${CDN_URL}/assets/solutions/dlod.svg`,
     className: "left-[2%] top-[62%] w-[15%] h-[28%]",
     type: "outer",
   },
   {
     id: "nri",
     title: "NRI Mortgage",
-    icon: "/assets/solutions/nri.svg",
+    icon: `${CDN_URL}/assets/solutions/nri.svg`,
     className: "left-[20%] top-[62%] w-[15%] h-[28%]",
     type: "inner",
   },
   {
     id: "commercial",
     title: "Commercial Property Purchase & Construction",
-    icon: "/assets/solutions/commercial.svg",
+    icon: `${CDN_URL}/assets/solutions/commercial.svg`,
     className: "left-[65%] top-[10%] w-[15%] h-[28%]",
     type: "inner",
   },
   {
     id: "school",
     title: "School Funding",
-    icon: "/assets/solutions/school.svg",
+    icon: `${CDN_URL}/assets/solutions/school.svg`,
     className: "left-[83%] top-[10%] w-[15%] h-[28%]",
     type: "outer",
   },
   {
     id: "bank2bank",
     title: "Bank-to-Bank Balance Transfer",
-    icon: "/assets/solutions/transfer.svg",
+    icon: `${CDN_URL}/assets/solutions/transfer.svg`,
     className: "left-[65%] top-[62%] w-[15%] h-[28%]",
     type: "inner",
   },
   {
     id: "lease",
     title: "Lease Rental Discounting",
-    icon: "/assets/solutions/lease.svg",
+    icon: `${CDN_URL}/assets/solutions/lease.svg`,
     className: "left-[83%] top-[62%] w-[15%] h-[28%]",
     type: "outer",
   },

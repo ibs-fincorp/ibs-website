@@ -4,6 +4,7 @@ import Image from "next/image";
 import Script from "next/script";
 import "./globals.css";
 import { Preloader } from "@/components/ui/preloader";
+import { CDN_URL } from "@/lib/cdn";
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
   subsets: ["latin"],
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     canonical: "https://www.ibsfincorp.com",
   },
   icons: {
-    icon: "/assets/logoibs.svg",
+    icon: `${CDN_URL}/assets/logoibs.svg`,
   },
   openGraph: {
     title: "IBSFINCORP | High-Value Secured Loans & Financial Solutions",
@@ -94,7 +95,7 @@ export default function RootLayout({
         <Preloader />
         {children}
         <a href=" https://wa.link/2df30k" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 hover:scale-110 transition-transform duration-300">
-          <Image src="/assets/whatsapp-icon.png" alt="Contact Us" width={60} height={60} className="drop-shadow-2xl rounded-full" />
+          <Image src={`${CDN_URL}/assets/whatsapp-icon.png`} alt="Contact Us" width={60} height={60} className="drop-shadow-2xl rounded-full" />
         </a>
         {/* Tally embed script for dynamic iframe height */}
         <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />

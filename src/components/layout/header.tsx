@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CloseIcon } from "@/components/ui/icons";
+import { CDN_URL } from "@/lib/cdn";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -55,7 +56,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex justify-start">
             <Link href={logoHref}>
-              <Image src="/assets/logo.png" alt="IBS FINCORP Logo" width={100} height={25} style={{ height: "auto" }} className="object-contain rounded-md" />
+              <Image src={`${CDN_URL}/assets/logo.png`} alt="IBS FINCORP Logo" width={100} height={25} style={{ height: "auto" }} className="object-contain rounded-md" />
             </Link>
           </div>
 

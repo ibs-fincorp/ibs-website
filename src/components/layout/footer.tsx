@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { CDN_URL } from "@/lib/cdn";
 
 export default function Footer() {
   return (
@@ -21,7 +22,7 @@ export default function Footer() {
             {/* Logo & Description */}
             <div className="lg:col-span-4 text-center md:text-left">
               <div className="py-2 rounded inline-block">
-                <Image src="/assets/logo.png" alt="IBS FINCORP Logo" width={160} height={45} style={{ height: "auto" }} className="object-cover" />
+                <Image src={`${CDN_URL}/assets/logo.png`} alt="IBS FINCORP Logo" width={160} height={45} style={{ height: "auto" }} className="object-cover" />
               </div>
               <p className="text-xs md:text-base font-normal">
                 Strategic Loan Consulting Firm (Corporate DSA). Facilitating Premium Secured Loan Across South India. Not A Bank Or NBFC.
@@ -73,7 +74,7 @@ export default function Footer() {
               <div className="text-xs sm:text-sm tracking-tight grid grid-cols-2 md:grid-cols-1 gap-6 text-left md:text-left">
                 <div>
                   <p className="inline-flex items-start text-left text-dark-900 gap-1.5 font-semibold mb-2 leading-tight">
-                    <Image src="/assets/location.svg" alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
+                    <Image src={`${CDN_URL}/assets/location.svg`} alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
                     <span>REGISTERED OFFICE - CHENNAI</span>
                   </p>
                   <span className="text-white/80 leading-relaxed text-[11px] sm:text-sm block px-1 max-w-xs mx-auto md:mx-0">
@@ -83,7 +84,7 @@ Chennai, Chennai, Tamil Nadu, 600026
                 </div>
                 <div>
                   <p className="inline-flex items-start text-left text-dark-900 gap-1.5 font-semibold mb-2 leading-tight">
-                    <Image src="/assets/location.svg" alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
+                    <Image src={`${CDN_URL}/assets/location.svg`} alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
                     <span>BRANCH OFFICE - BANGALORE</span>
                   </p>
                   <span className="text-white/80 leading-relaxed text-[11px] sm:text-sm block px-1 max-w-xs mx-auto md:mx-0">
@@ -92,7 +93,7 @@ Chennai, Chennai, Tamil Nadu, 600026
                 </div>
                 <div>
                   <p className="inline-flex items-start text-left text-dark-900 gap-1.5 font-semibold mb-2 leading-tight">
-                    <Image src="/assets/location.svg" alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
+                    <Image src={`${CDN_URL}/assets/location.svg`} alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
                     <span>MADURAI OFFICE</span>
                   </p>
                   <span className="text-white/80 leading-relaxed text-[11px] sm:text-sm block px-1 max-w-xs mx-auto md:mx-0">
@@ -101,7 +102,7 @@ Chennai, Chennai, Tamil Nadu, 600026
                 </div>
                 <div>
                   <p className="inline-flex items-start text-left text-dark-900 gap-1.5 font-semibold mb-2 leading-tight">
-                    <Image src="/assets/location.svg" alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
+                    <Image src={`${CDN_URL}/assets/location.svg`} alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
                     <span>COIMBATORE OFFICE</span>
                   </p>
                   <span className="text-white/80 leading-relaxed text-[11px] sm:text-sm block px-1 max-w-xs mx-auto md:mx-0">
@@ -110,7 +111,7 @@ Chennai, Chennai, Tamil Nadu, 600026
                 </div>
                 <div>
                   <p className="inline-flex items-start text-left text-dark-900 gap-1.5 font-semibold mb-2 leading-tight">
-                    <Image src="/assets/location.svg" alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
+                    <Image src={`${CDN_URL}/assets/location.svg`} alt="Location" width={14} height={14} className="object-contain shrink-0 mt-0.5" />
                     <span>MYSURU OFFICE</span>
                   </p>
                   <span className="text-white/80 leading-relaxed text-[11px] sm:text-sm block px-1 max-w-xs mx-auto md:mx-0">
